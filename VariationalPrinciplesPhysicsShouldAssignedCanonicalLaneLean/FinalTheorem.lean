@@ -1,0 +1,16 @@
+import canonicalLaneMathlib.AdmissibleClass
+import VariationalPrinciplesPhysicsShouldAssignedCanonicalLaneLean.EulerLagrangeBridge
+import VariationalPrinciplesPhysicsShouldAssignedCanonicalLaneLean.GateLemmasVP
+
+namespace HautevilleHouse
+namespace VariationalPrinciplesPhysicsShouldAssigned
+
+def ConstrainedVariationalClosure (A : AdmissibleClass) : Prop :=
+  bridgeClosed A ∧ gateClosed A
+
+theorem constrained_variational_endgame (A : AdmissibleClass) :
+    ConstrainedVariationalClosure A := by
+  exact And.intro (bridge_from_admissible_class A) (gate_from_admissible_class A)
+
+end VariationalPrinciplesPhysicsShouldAssigned
+end HautevilleHouse
